@@ -70,14 +70,6 @@ clean_data("Top speed", "avg_top_speeds", {'km/h': 1})
 clean_data("Life span", "avg_life_spans", {'yrs': 1, 'years': 1})
 
 st.write(animal_data.head())
-"""
-HL_data = animal_data[['avg_heights', 'avg_lengths']]
-HL_data.dropna(inplace=True)
-
-fig = px.scatter(HL_data, x='avg_heights', y='avg_lengths')
-
-st.write(fig)
-"""
 
 HW_data = animal_data[['avg_heights', 'avg_weights', "Order"]]
 HW_data.dropna(inplace=True)
@@ -90,3 +82,11 @@ fig = px.scatter(
 )
 fig.update_layout(xaxis=dict(range=[0, 3500]), yaxis=dict(range=[0, 5]))
 st.write(fig)
+
+
+L_data = animal_data[['avg_life_spans', 'avg_lengths']]
+L_data.dropna(inplace=True)
+fig1 = px.scatter(L_data, x='avg_life_spans', y='avg_lengths')
+fig1.update_layout(xaxis=dict(range=[0, 40]),yaxis=dict(range=[-50, 500]))
+st.write(fig1)
+
