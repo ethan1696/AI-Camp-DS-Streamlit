@@ -99,7 +99,7 @@ sns.scatterplot(x='avg_top_speeds', y='avg_weights', data=animal_data, ax=ax)
 ax.set_title('Relationship between Top Speed and Weight')
 ax.set_xlabel('Top Speed')
 ax.set_ylabel('Weight')
-
+ax.set_xlim(0, 70,000)
 # Display the plot in Streamlit
 st.pyplot(fig2)
 st.text("The scatterplot displayed above illustrates that animals with lower weights tend to occupy the central range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
