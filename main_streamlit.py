@@ -93,13 +93,13 @@ st.write(fig1)
 st.text("For mammals, we can see that as their weight increase, most of the time the average life span also increase.This correlation can be due to smaller mammals having a higher risk of being eaten by predators and larger mammals have a lower metabolism and a lower body temperature, which helps them live longer.Having a lower metabolism and body temperature can help mammals conserve energy and minimize heat loss in cold and unfavorable environments. This can be beneficial for survival when food is scarce.")
 
 fig2, ax = plt.subplots()
-sns.scatterplot(x='avg_top_speeds', y='avg_weights', data=animal_data, ax=ax)
+sns.scatterplot(x='avg_top_speeds', y='avg_weights', data=animal_data, ax=ax, kind='scatter')
 
 # Add a title and labels
 ax.set_title('Relationship between Top Speed and Weight')
 ax.set_xlabel('Top Speed')
 ax.set_ylabel('Weight')
-#ax.set_xlim(0, 70000)
+ax.set_xlim(0, 70000)
 # Display the plot in Streamlit
 st.pyplot(fig2)
 st.text("The scatterplot displayed above illustrates that animals with lower weights tend to occupy the central range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
