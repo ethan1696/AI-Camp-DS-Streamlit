@@ -71,6 +71,7 @@ clean_data("Life span", "avg_life_spans", {'yrs': 1, 'years': 1})
 
 st.write(animal_data.head())
 
+st.title("How Animal Orders Relate to Their Height and Weight")
 HW_data = animal_data[['avg_heights', 'avg_weights', "Order"]]
 HW_data.dropna(inplace=True)
 
@@ -82,13 +83,13 @@ fig = px.scatter(
 )
 fig.update_layout(xaxis=dict(range=[0, 3500]), yaxis=dict(range=[0, 5]))
 st.write(fig)
-st.text("Gruiformes (an order of crane-like birds) - mostly tall and not very heavy \nArtiodactyla (even toed ungulates like pigs) - tend to be heavier and height grows little compared to weight growth --> exception very tall (giraffe) \nProboscidea (only living family left, elephants) - very heavy and not very tall \nPerissodactyla (odd toed ungulates like horses) - medium heavy and not very tall, clustered around 200 - 300 kg and 0.8 - 1.2 m --> exception very heavy (rhino) \nCarnivora (primarily carnivore mammals) - not tall or overly heavy, kinda random \nDiprotodontia (marsupials) - pretty light and mostly short but some are taller \nRodentia (rodents) - light and short \nIn many animals, having ")
+st.text("Gruiformes (an order of crane-like birds) - mostly tall and not very heavy \nArtiodactyla (even toed ungulates like pigs) - tend to be heavier and height grows little compared to weight growth --> exception very tall (giraffe) \nProboscidea (only living family left, elephants) - very heavy and not very tall \nPerissodactyla (odd toed ungulates like horses) - medium heavy and not very tall, clustered around 200 - 300 kg and 0.8 - 1.2 m --> exception very heavy (rhino) \nCarnivora (primarily carnivore mammals) - not tall or overly heavy, kinda random \nDiprotodontia (marsupials) - pretty light and mostly short but some are taller \nRodentia (rodents) - light and short \nIn many animals, having heavier body results in them not being very tall. Many animals in specific orders follow trends in both their heights and weights. Like how the Gruiformes are all tall and light due to them sharing a similar charateristic of being birds and crane-like. ")
 
 
 LSW_data = animal_data[['avg_life_spans', 'avg_weights', 'Class']]
 LSW_data.dropna(inplace=True)
 fig1 = px.scatter(LSW_data, x='avg_life_spans', y='avg_weights', color="Class")
-fig.update_layout(xaxis=dict(range=[5, 40]),yaxis=dict(range=[0, 350])) #One small thing, you might want to change the bounds on your y-axis. 
+fig1.update_layout(xaxis=dict(range=[5, 40]),yaxis=dict(range=[0, 350])) #One small thing, you might want to change the bounds on your y-axis. 
 st.write(fig1)
 st.text("For mammals, we can see that as their weight increase, most of the time the average life span also increase.This correlation can be due to smaller mammals having a higher risk of being eaten by predators and larger mammals have a lower metabolism and a lower body temperature, which helps them live longer.Having a lower metabolism and body temperature can help mammals conserve energy and minimize heat loss in cold and unfavorable environments. This can be beneficial for survival when food is scarce.")
 
@@ -102,9 +103,29 @@ ax.set_ylabel('Weight')
 #ax.set_xlim(0, 70000)
 # Display the plot in Streamlit
 st.pyplot(fig2)
-st.text("The scatterplot displayed above illustrates that animals with lower weights tend to occupy the central range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
+st.text("The scatterplot displayed above illustrates that animals with lower weights tend to occupy the central to lower range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
 
-
+plt.title("The Diet of Wild Canines")
 b = animal_data[animal_data["Genus"] == "Canis"]
+HL_data = animal_data[["Diet", "Genus"]]
+HL_data.dropna(inplace = True)
 b["Diet"].value_counts().plot.pie()
+st.set_label("Diet")
+st.text("This pie chart is   what all of the canines in the wild generaly are. Being a canivore ment you had to hunt for food, meaning this isn't the best choice for canines. Being a scavenger though ment there was way more food avalible to canines, because they could fight off the other scavengers due to their size and strength, so most canines are scavengers. Lastly, being an omnivore ment you could eat pretty much anything, so most canines also stuck with omnivory.")
 
+#aniaml me of the li
+
+
+fig3, ax = plt.figure(figsize=(12,4))
+sns.histplot(animal_data, x = 'avg_life_spans', hue = 'class')
+plt.title title ("Average Life span base on species and class")
+st.pylot(fig3)
+st.text("# According to a recent study, most animals struggle to survive above the age of 15 to 20 years. With the exception of a few outliers, birds likewise experience difficulties at that stage.")
+
+
+FD_data = animal[['Order', 'diet singular']]
+FD_data.dropna(inplace=True)
+
+fig4 = px.scatter(FD_data, x="Order", y="diet singular")
+st.write(fig4)
+st.text("Although the Carnivora class is supposed to be composed of primarily carnivores, it also has other animals that are not carnivores. This is because of how their body is structured such as claws and skull shape. ")
