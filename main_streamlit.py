@@ -149,7 +149,7 @@ fig2 = px.scatter(animal_data,
                   color="Class")
 fig2.update_layout(xaxis=dict(range=[0, 180]), yaxis=dict(range=[0, 40000]))
 
-fig2.update_layout(title='Relationship between Top Speed and Weight',
+fig2.update_layout(title='Relationship between Top Speed and Weight: Full Graph',
                    xaxis_title='Top Speed',
                    yaxis_title='Weight')
 
@@ -161,7 +161,7 @@ fig2_1 = px.scatter(animal_data,
                     color="Class")
 fig2_1.update_layout(xaxis=dict(range=[0, 180]), yaxis=dict(range=[0, 200]))
 
-fig2_1.update_layout(title='Relationship between Top Speed and Weight',
+fig2_1.update_layout(title='Relationship between Top Speed and Weight: Magnified',
                      xaxis_title='Top Speed',
                      yaxis_title='Weight')
 
@@ -202,7 +202,7 @@ fig3.update_layout(
   yaxis_title='Frequency',
 )
 st.write(fig3)
-st.text(
+st.markdown(
   "According to a recent study, most animals struggle to survive above the age of 15 to 20 years. With the exception of a few outliers, birds likewise experience difficulties at that stage."
 )
 
@@ -215,7 +215,7 @@ FD_data.dropna(inplace=True)
 fig4 = px.scatter(FD_data, x="Order", y="diet singular")
 fig4.update_layout(title="Different Diets in Orders", yaxis_title="Diet")
 st.write(fig4)
-st.markdown("Carnivores are the most common type of diet across the different orders. After that, it is herbivores and omnivores. W") #this paragraph has no organization :) dont mind it
+st.markdown("Carnivores are the most common type of diet across the different orders. After that, it is herbivores and omnivores. The Diprotodontia has the widest range of diets while the Dermoptera, Myida, and Musophagiformes have the most restrictive diet. ") #this paragraph has no organization :) dont mind it
 
 # Add the title to your graph instead of doing it in streamlit
 # Try to use more of the graph than just the carnivora column, maybe note that carnivores are the most common of all diets
@@ -243,7 +243,7 @@ fig5 = px.bar(diet_counts_df,
               y="Count",
               color="Diet",
               hover_data=["Count"])
-fig5.update_layout(title="Average Life Spans Based on Diet")
+fig5.update_layout(title="Comparison of Diets in ")
 #fig5 = animal_data.head(15)["diet singular"].value_counts().plot.bar(y="avg_life_spans")
 st.write(fig5)
 
