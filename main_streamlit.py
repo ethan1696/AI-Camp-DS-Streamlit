@@ -16,7 +16,7 @@ import plotly.express as px
 st.title("Animal Planet Data")
 
 #adding discription to your website
-st.text('asdf')
+st.text('The dataset includes information of 30,000 species of animals and documents the animals name, kingdoms, phylum, subphylum, class, order, suborder, family, genus, species, population size, life span, top speed, weight, height, attributes, distribution, habits, diet, mating habits, and population.')
 
 animal_data = pd.read_csv('animals_info.csv')
 
@@ -186,7 +186,7 @@ fig4.update_layout(title="The Diet of Wild Canines")
 #b["diet singular"].value_counts().plot.pie()
 st.write(fig4)
 st.markdown(
-  "This pie chart is visually discribing what all of the canines in the wild's diet consists of. Being a canivore ment you had to hunt for food, meaning this isn't the best choice for canines. Being a scavenger, though, ment there was way more food avalible to canines, because they could fight off the other scavengers due to their size and strength. Lastly, being an omnivore ment you could eat pretty much anything, this ment the two best choices to choose would be a scavenger and an omnivore."
+  "This pie chart is visually discribing what all of the canines in the wild's diet consists of. Being a canivore ment you had to hunt for food, meaning this isn't the best choice for canines. Being a scavenger, though, ment there was way more food avalible to canines, because they could fight off the other scavengers due to their size and strength. Lastly, being an omnivore ment you could eat pretty much anything, this ment the two best choices to choose would be a scavenger and an omnivore, and thats what the pie chart displays"
 )
 
 #aniaml me of the li
