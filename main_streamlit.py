@@ -93,7 +93,7 @@ fig1.update_layout(xaxis=dict(range=[5, 40]),yaxis=dict(range=[0, 350])) #One sm
 st.write(fig1)
 st.text("For mammals, we can see that as their weight increase, most of the time the average life span also increase.This correlation can be due to smaller mammals having a higher risk of being eaten by predators and larger mammals have a lower metabolism and a lower body temperature, which helps them live longer.Having a lower metabolism and body temperature can help mammals conserve energy and minimize heat loss in cold and unfavorable environments. This can be beneficial for survival when food is scarce.")
 
-fig2 = px.scatter(LSW_data, x='avg_top_speeds', y='avg_weights', color="Class")
+fig2 = px.scatter(animal_data, x='avg_top_speeds', y='avg_weights', color="Class")
 fig2.update_layout(xaxis=dict(range=[0, 180]),yaxis=dict(range=[0, 70000]))
 
 fig.update_layout(
@@ -111,7 +111,7 @@ HL_data = animal_data[["Diet", "Genus"]]
 HL_data.dropna(inplace = True)
 b["Diet"].value_counts().plot.pie()
 st.set_label("Diet")
-st.text("This pie chart is visually discribing what all of the canines in the wild's diet consists of. Being a canivore ment you had to hunt for food, meaning this isn't the best choice for canines. Being a scavenger, though, ment there was way more food avalible to canines, because they could fight off the other scavengers due to their size and strength. Lastly, being an omnivore ment you could eat pretty much anything, this ment the two best choices to choose were scavendry and omnivory.")
+st.text("This pie chart is visually discribing what all of the canines in the wild's diet consists of. Being a canivore ment you had to hunt for food, meaning this isn't the best choice for canines. Being a scavenger, though, ment there was way more food avalible to canines, because they could fight off the other scavengers due to their size and strength. Lastly, being an omnivore ment you could eat pretty much anything, this ment the two best choices to choose would be a scavenger and an omnivore.")
 
 #aniaml me of the li
 
@@ -128,7 +128,7 @@ FD_data.dropna(inplace=True)
 
 fig4 = px.scatter(FD_data, x="Order", y="diet singular")
 st.write(fig4)
-st.text("Although the Carnivora class is supposed to be composed of primarily carnivores, it also has other animals that are not carnivores. This is because of how their body is structured such as claws and skull shape. Most orders have carnivores except for a select few. ")
+st.text("Although the Carnivora class is supposed to be composed of primarily carnivores, it also has other animals that are not carnivores. This is because of how their body is structured such as claws and skull shape. Most orders have carnivores except for a select few. However, the fact that the amount of carnivores out weighs the amount of herbivores, could cause problems in an ecosystem where the top predators lack prey.") #this paragraph has no organization :) dont mind it
 
 
 
@@ -146,4 +146,4 @@ animal_data["diet singular"] = diet_new
 st.title("Average Life Spans Based on Diet")
 fig5 = animal_data.head(15)["diet singular"].value_counts().plot.bar(y="avg_life_spans")
 st.write(fig5)
-st.text("The animals in the data set are classified into various dietary categories. (Carnivore, Herbivore, Omnivore, Scavenger) Looking at the data from the graph we can see the ")
+st.text("The animals in the data set are classified into various dietary categories. (Carnivore, Herbivore, Omnivore, Scavenger) Looking at the data from the graph we can see the animals with a predominantly carnivorous diet typically live longer than their counterparts. Using this information in the future we can judge life expectancy at early ages in an animals life.")
