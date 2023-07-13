@@ -92,7 +92,7 @@ fig.update_layout(xaxis=dict(range=[5, 40]),yaxis=dict(range=[0, 350])) #One sma
 st.write(fig1)
 st.text("For mammals, we can see that as their weight increase, most of the time the average life span also increase.This correlation can be due to smaller mammals having a higher risk of being eaten by predators and larger mammals have a lower metabolism and a lower body temperature, which helps them live longer.Having a lower metabolism and body temperature can help mammals conserve energy and minimize heat loss in cold and unfavorable environments. This can be beneficial for survival when food is scarce.")
 
-fig2 = plt.figure(figsize=(10, 6)
+fig2 = plt.figure(figsize=(10, 6))
 sns.scatterplot(x='avg_top_speeds', y='avg_weights', data=animal_data)
 plt.title('Relationship between Top Speed and Weight')
 plt.xlabel('Top Speed')
