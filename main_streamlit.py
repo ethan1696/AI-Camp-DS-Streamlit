@@ -85,7 +85,7 @@ st.write(fig)
 st.text("Gruiformes (an order of crane-like birds) - mostly tall and not very heavy \nArtiodactyla (even toed ungulates like pigs) - tend to be heavier and height grows little compared to weight growth --> exception very tall (giraffe) \nProboscidea (only living family left, elephants) - very heavy and not very tall \nPerissodactyla (odd toed ungulates like horses) - medium heavy and not very tall, clustered around 200 - 300 kg and 0.8 - 1.2 m --> exception very heavy (rhino) \nCarnivora (primarily carnivore mammals) - not tall or overly heavy, kinda random \nDiprotodontia (marsupials) - pretty light and mostly short but some are taller \nRodentia (rodents) - light and short")
 
 
-LSW_data = animal_data[['avg_life_spans', 'avg_weights']]
+LSW_data = animal_data[['avg_life_spans', 'avg_weights', 'Class']]
 LSW_data.dropna(inplace=True)
 fig1 = px.scatter(LSW_data, x='avg_life_spans', y='avg_weights', color="Class")
 fig.update_layout(xaxis=dict(range=[5, 40]),yaxis=dict(range=[0, 350])) #One small thing, you might want to change the bounds on your y-axis. 
@@ -99,3 +99,7 @@ plt.xlabel('Top Speed')
 plt.ylabel('Weight')
 st.pyplot(plt)
 st.text("The scatterplot displayed above illustrates that animals with lower weights tend to occupy the central range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
+
+b = animal_data[animal_data["Genus"] == "Canis"]
+b["Diet"].value_counts().plot.pie()
+
