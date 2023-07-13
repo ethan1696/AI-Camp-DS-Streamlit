@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import warnings
-
+import seaborn as sns
 warnings.filterwarnings("ignore")
 
 import matplotlib.pyplot as plt
@@ -90,3 +90,8 @@ fig1 = px.scatter(L_data, x='avg_life_spans', y='avg_lengths')
 fig1.update_layout(xaxis=dict(range=[0, 40]),yaxis=dict(range=[-50, 500]))
 st.write(fig1)
 
+
+fig = sns.scatterplot(x='avg_top_speeds', y='avg_weights', data=animal_data)
+plt.title('Relationship between Top Speed and Weight')
+plt.xlabel('Top Speed')
+plt.ylabel('Weight')
