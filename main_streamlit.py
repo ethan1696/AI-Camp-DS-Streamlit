@@ -82,7 +82,7 @@ fig = px.scatter(
 )
 fig.update_layout(xaxis=dict(range=[0, 3500]), yaxis=dict(range=[0, 5]))
 st.write(fig)
-st.text("Gruiformes (an order of crane-like birds) - mostly tall and not very heavy \nArtiodactyla (even toed ungulates like pigs) - tend to be heavier and height grows little compared to weight growth --> exception very tall (giraffe) \nProboscidea (only living family left, elephants) - very heavy and not very tall \nPerissodactyla (odd toed ungulates like horses) - medium heavy and not very tall, clustered around 200 - 300 kg and 0.8 - 1.2 m --> exception very heavy (rhino) \nCarnivora (primarily carnivore mammals) - not tall or overly heavy, kinda random \nDiprotodontia (marsupials) - pretty light and mostly short but some are taller \nRodentia (rodents) - light and short")
+st.text("Gruiformes (an order of crane-like birds) - mostly tall and not very heavy \nArtiodactyla (even toed ungulates like pigs) - tend to be heavier and height grows little compared to weight growth --> exception very tall (giraffe) \nProboscidea (only living family left, elephants) - very heavy and not very tall \nPerissodactyla (odd toed ungulates like horses) - medium heavy and not very tall, clustered around 200 - 300 kg and 0.8 - 1.2 m --> exception very heavy (rhino) \nCarnivora (primarily carnivore mammals) - not tall or overly heavy, kinda random \nDiprotodontia (marsupials) - pretty light and mostly short but some are taller \nRodentia (rodents) - light and short \nIn many animals, having ")
 
 
 LSW_data = animal_data[['avg_life_spans', 'avg_weights', 'Class']]
@@ -92,13 +92,14 @@ fig.update_layout(xaxis=dict(range=[5, 40]),yaxis=dict(range=[0, 350])) #One sma
 st.write(fig1)
 st.text("For mammals, we can see that as their weight increase, most of the time the average life span also increase.This correlation can be due to smaller mammals having a higher risk of being eaten by predators and larger mammals have a lower metabolism and a lower body temperature, which helps them live longer.Having a lower metabolism and body temperature can help mammals conserve energy and minimize heat loss in cold and unfavorable environments. This can be beneficial for survival when food is scarce.")
 
-
+fig2 = plt.figure(figsize=(10, 6)
 sns.scatterplot(x='avg_top_speeds', y='avg_weights', data=animal_data)
 plt.title('Relationship between Top Speed and Weight')
 plt.xlabel('Top Speed')
 plt.ylabel('Weight')
-st.pyplot(plt)
+st.pyplot(fig2)
 st.text("The scatterplot displayed above illustrates that animals with lower weights tend to occupy the central range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
+
 
 b = animal_data[animal_data["Genus"] == "Canis"]
 b["Diet"].value_counts().plot.pie()
