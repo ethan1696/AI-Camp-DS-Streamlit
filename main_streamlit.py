@@ -16,7 +16,7 @@ import plotly.express as px
 st.title("Animal Planet Data")
 
 #adding discription to your website
-st.text('The dataset includes information of 30,000 species of animals and documents the animals name, kingdoms, phylum, subphylum, class, order, suborder, family, genus, species, population size, life span, top speed, weight, height, attributes, distribution, habits, diet, mating habits, and population.')
+st.markdown("The dataset includes information of 30,000 species of animals and documents the animals name, kingdoms, phylum, subphylum, class, order, suborder, family, genus, species, population size, life span, top speed, weight, height, attributes, distribution, habits, diet, mating habits, and population.")
 
 animal_data = pd.read_csv('animals_info.csv')
 
@@ -105,18 +105,18 @@ st.markdown(
   "In many animals, height increases with weight. Animals in different orders follow different trends in both their heights and weights. Like how the Gruiformes are all tall and light due to them sharing a similar charateristic of being birds and crane-like. "
 )
 st.markdown(
-  "Gruiformes (an order of crane-like birds) - mostly tall and not very heavy")
+  "Gruiformes (an order of crane-like birds) - mostly tall and not very heavy. They are mostly tall due to their long legs and neck but need to be light as they are birds of flight.")
 st.markdown(
   "Artiodactyla (even toed ungulates like pigs) - tend to be heavier and height grows little compared to weight growth --> exception very tall (giraffe)"
 )
 st.markdown(
-  "Proboscidea (only living family left, elephants) - very heavy and not very tall "
+  "Proboscidea (only living family left, elephants) - very heavy and not very tall. As elephants are the only part of this order that still exists, this analysis centers around the anatomy of elephants rather than a comparison within the range."
 )
 st.markdown(
   "Perissodactyla (odd toed ungulates like horses) - medium heavy and not very tall, clustered around 200 - 300 kg and 0.8 - 1.2 m --> exception very heavy (rhino) "
 )
 st.markdown(
-  "Carnivora (primarily carnivore mammals) - not tall or overly heavy, kinda random "
+  "Carnivora (primarily carnivore mammals) - not tall or overly heavy, mostly random. Since the carnivora order contains a much more diverse range of animals, it doesn't have as much of a trend. However, species of this order are not in the extremes, they are not very heavy, light, or tall."
 )
 st.markdown(
   "Diprotodontia (marsupials) - pretty light and mostly short but some are taller "
@@ -138,7 +138,7 @@ fig1.update_layout(title='Weight vs Average Life Span Based On Animal Class',
                    yaxis_title='Weight')
 st.write(fig1)
 st.markdown(
-  "For the animals in the study, we can see that as their weight and average life span increase together. This correlation can be due to smaller animals having a higher risk of being eaten by predators and larger animals have a slower metabolism and a lower body temperature, which helps them live longer. Having a lower metabolism and body temperature can help animals conserve energy and minimize heat loss in cold and unfavorable environments. This can be beneficial for survival when food is scarce."
+  "For the animals in the study, we can see that their weight and average life span increase together. This correlation can be due to smaller animals having a higher risk of being eaten by predators because of the presented size difference. Larger animals also have a slower metabolism allowing them to store more food and fat than smaller animals. As a result, larger animals have an increased weight and a greater likelihood of surviving challenging and unfavorable conditions, such as food scarcity. These factors contribute to the outcome of the graph that shows that heavier animals generally live longer than smaller ones."
 )
 
 # Might want to change it to saying weight and average life span increase together
@@ -167,7 +167,7 @@ fig2_1.update_layout(title='Relationship between Top Speed and Weight: Magnified
 
 st.write(fig2_1)
 st.markdown(
-  "The scatterplots displayed above illustrate that animals with lower weights tend to occupy the central to lower range in terms of top speed. While some smaller animals have both low and high top speeds, there are very few larger animals that have high top speeds. Since only a small number of larger animals exhibit high top speeds, despite their greater weight, it suggests that factors other than weight play a significant role in determining the animals' speed capabilities. There are also trends indicating that as the weight of an animal increases, the top speed increases as well. For every weight class, there are always animals with lower top speeds."
+  "The scatterplots displayed above illustrate that animals with lower weights tend to occupy the central to lower range in terms of top speed. This trend indicates that as the weight of an animal increases, the top speed increases as well. This suggests a direct correlation between weight and speed in these animals. Since only a small number of larger animals exhibit high top speeds, despite their greater weight, it implies that factors other than weight play a significant role in determining the animals' speed capabilities. For every weight class, there are always animals with lower top speeds."
 )
 
 # You could say something about the weight increasing as the top speed increases. Maybe you could also mention that there are always animals with low top speeds for every weight class
@@ -203,7 +203,7 @@ fig3.update_layout(
 )
 st.write(fig3)
 st.markdown(
-  "According to a recent study, most animals struggle to survive above the age of 15 to 20 years. With the exception of a few outliers, birds likewise experience difficulties at that stage."
+  "According to a recent study, most animals struggle to survive above the age of 15 to 20 years. With the exception of a few outliers, birds likewise experience difficulties at that stage. While there are a few exceptional cases that defy this trend, such as certain long-lived species, it is observed that birds, too, encounter significant difficulties during this particular life stage. This study sheds light on the vulnerability of animals as they reach this critical age threshold."
 )
 
 # Maybe add something about how the data reflects the findings of this study
@@ -243,12 +243,12 @@ fig5 = px.bar(diet_counts_df,
               y="Count",
               color="Diet",
               hover_data=["Count"])
-fig5.update_layout(title="Comparison of Diets in ")
+fig5.update_layout(title="Comparison of Diets in Animals")
 #fig5 = animal_data.head(15)["diet singular"].value_counts().plot.bar(y="avg_life_spans")
 st.write(fig5)
 
 st.markdown(
-  "The animals in the data set are classified into various dietary categories. (Carnivore, Herbivore, Omnivore, Scavenger) Looking at the data from the graph we can see the animals with a predominantly carnivorous diet typically live longer than their counterparts."
+  "The animals in the data set are classified into various dietary categories. (Carnivore, Herbivore, Omnivore, Scavenger) Looking at the data from the graph we can see the animals with a predominantly carnivorous diet typically outnumber their counterparts."
 )
 
 #Using this information in the future we can judge life expectancy at early ages in an animals life.
