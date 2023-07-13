@@ -82,16 +82,20 @@ fig = px.scatter(
 )
 fig.update_layout(xaxis=dict(range=[0, 3500]), yaxis=dict(range=[0, 5]))
 st.write(fig)
+st.text("Gruiformes (an order of crane-like birds) - mostly tall and not very heavy \nArtiodactyla (even toed ungulates like pigs) - tend to be heavier and height grows little compared to weight growth --> exception very tall \nProboscidea (only living family left, elephants) - very heavy and not very tall \nPerissodactyla - medium heavy and not very tall, clustered around 200 - 300 kg and 0.8 - 1.2 m --> exception very heavy \nCarnivora - not tall or overly heavy, kinda random \nDiprotodontia - not very heavy and mostly tall or short \nRodentia - light and short")
 
 
-L_data = animal_data[['avg_life_spans', 'avg_lengths']]
-L_data.dropna(inplace=True)
-fig1 = px.scatter(L_data, x='avg_life_spans', y='avg_lengths')
-fig1.update_layout(xaxis=dict(range=[0, 40]),yaxis=dict(range=[-50, 500]))
+LSW_data = animal_data[['avg_life_spans', 'avg_weights']]
+LSW_data.dropna(inplace=True)
+fig1 = px.scatter(LSW_data, x='avg_life_spans', y='avg_weights')
+fig1.update_layout(xaxis=dict(range=[0, 40]),yaxis=dict(range=[0, 500])) #One small thing, you might want to change the bounds on your y-axis. 
 st.write(fig1)
+st.text("YOUR ANALYSIS HERE")
 
 
-fig = sns.scatterplot(x='avg_top_speeds', y='avg_weights', data=animal_data)
+sns.scatterplot(x='avg_top_speeds', y='avg_weights', data=animal_data)
 plt.title('Relationship between Top Speed and Weight')
 plt.xlabel('Top Speed')
 plt.ylabel('Weight')
+st.write(plt)
+st.text("")
