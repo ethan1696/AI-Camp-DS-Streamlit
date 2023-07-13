@@ -94,7 +94,7 @@ st.write(fig1)
 st.text("For mammals, we can see that as their weight increase, most of the time the average life span also increase.This correlation can be due to smaller mammals having a higher risk of being eaten by predators and larger mammals have a lower metabolism and a lower body temperature, which helps them live longer.Having a lower metabolism and body temperature can help mammals conserve energy and minimize heat loss in cold and unfavorable environments. This can be beneficial for survival when food is scarce.")
 
 fig2 = px.scatter(animal_data, x='avg_top_speeds', y='avg_weights', color="Class")
-fig2.update_layout(xaxis=dict(range=[0, 180]),yaxis=dict(range=[0, 70000]))
+fig2.update_layout(xaxis=dict(range=[0, 180]),yaxis=dict(range=[0, 40000]))
 
 fig.update_layout(
     title='Relationship between Top Speed and Weight',
@@ -103,14 +103,25 @@ fig.update_layout(
 )
 
 st.write(fig2)
-st.text("The scatterplot displayed above illustrates that animals with lower weights tend to occupy the central to lower range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
+
+fig2_1 = px.scatter(animal_data, x='avg_top_speeds', y='avg_weights', color="Class")
+fig2_1.update_layout(xaxis=dict(range=[0, 180]),yaxis=dict(range=[0, 200]))
+
+fig.update_layout(
+    title='Relationship between Top Speed and Weight',
+    xaxis_title='Top Speed',
+    yaxis_title='Weight',
+)
+
+st.write(fig2_1)
+st.text("The scatterplots displayed above illustrate that animals with lower weights tend to occupy the central to lower range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
 
 plt.title("The Diet of Wild Canines")
 b = animal_data[animal_data["Genus"] == "Canis"]
 HL_data = animal_data[["Diet", "Genus"]]
 HL_data.dropna(inplace = True)
 b["Diet"].value_counts().plot.pie()
-st.set_label("Diet")
+st.set_label("Diet") 
 st.text("This pie chart is visually discribing what all of the canines in the wild's diet consists of. Being a canivore ment you had to hunt for food, meaning this isn't the best choice for canines. Being a scavenger, though, ment there was way more food avalible to canines, because they could fight off the other scavengers due to their size and strength. Lastly, being an omnivore ment you could eat pretty much anything, this ment the two best choices to choose would be a scavenger and an omnivore.")
 
 #aniaml me of the li
