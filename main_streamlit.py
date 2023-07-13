@@ -111,7 +111,7 @@ st.markdown("In many animals, having heavier body results in them not being very
 LSW_data = animal_data[['avg_life_spans', 'avg_weights', 'Class']]
 LSW_data.dropna(inplace=True)
 fig1 = px.scatter(LSW_data, x='avg_life_spans', y='avg_weights', color="Class")
-fig1.update_layout(xaxis=dict(range=[5, 40]),yaxis=dict(range=[0, 350])) #One small thing, you might want to change the bounds on your y-axis. 
+fig1.update_layout(xaxis=dict(range=[0, 80]),yaxis=dict(range=[0, 350])) #One small thing, you might want to change the bounds on your y-axis. 
 st.write(fig1)
 st.markdown("For mammals, we can see that as their weight increase, most of the time the average life span also increase.This correlation can be due to smaller mammals having a higher risk of being eaten by predators and larger mammals have a lower metabolism and a lower body temperature, which helps them live longer.Having a lower metabolism and body temperature can help mammals conserve energy and minimize heat loss in cold and unfavorable environments. This can be beneficial for survival when food is scarce.")
 
@@ -136,7 +136,7 @@ fig.update_layout(
 )
 
 st.write(fig2_1)
-st.markdown("The scatterplots displayed above illustrate that animals with lower weights tend to occupy the central to lower range in terms of top speed. While there are some lower-weight animals with low top speeds and high-top speeds, there are very few animals with higher weights with high top speeds.")
+st.markdown("The scatterplots displayed above illustrate that animals with lower weights tend to occupy the central to lower range in terms of top speed. While some smaller animals have both low and high top speeds, there are very few larger animals that have high top speeds.")
 
 plt.title("The Diet of Wild Canines")
 b = animal_data[animal_data["Genus"] == "Canis"]
@@ -164,7 +164,7 @@ fig3.update_layout(
 st.write(fig3)
 st.markdown("# According to a recent study, most animals struggle to survive above the age of 15 to 20 years. With the exception of a few outliers, birds likewise experience difficulties at that stage.")
 
-
+st.title("Different Orders and their diet groups")
 FD_data = animal_data[['Order', 'diet singular']]
 FD_data.dropna(inplace=True)
 
